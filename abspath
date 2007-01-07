@@ -25,14 +25,17 @@ from optparse import OptionParser
 
 VERSION = 0.1
 
-DESCRIPTION = """
+DESCRIPTION = """Return a normalized absolutized version of the pathnames.
+For example, "abspath /etc////../mnt/" returns "/mnt". "abspath passwd"
+run in /etc returns "/etc/passwd".
 """
 
-parser = OptionParser(usage = "abspath [options]... [file]...",
+parser = OptionParser(usage = "abspath [options]... [path]...",
 	   description = DESCRIPTION,
 	   version = "abspath %s" % VERSION)
 
-parser.add_option("-r", "--real-path", action="store_true", dest="realPath", help="")
+parser.add_option("-r", "--real-path", action="store_true", dest="realPath",
+  help="eliminate the symbolic links encoutered in the path")
 
 opts, args = parser.parse_args()
 
