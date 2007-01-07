@@ -1,7 +1,8 @@
+You must have python installed to run abspath.
 Copy abspath where you want - somewhere in your PATH - and make sure it is
 executable:
 
-  chmod a+r abspath
+  chmod a+x abspath
   
 Building the man page requires docbook and xmlto:
 
