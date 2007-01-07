@@ -1,0 +1,12 @@
+Copy abspath where you want - somewhere in your PATH - and make sure it is
+executable:
+
+  chmod a+r abspath
+  
+Building the man page requires docbook and xmlto:
+
+  asciidoc -b docbook -d manpage abspath.1.txt
+  xmlto man abspath.1.xml
+  perl -e 's/\.sp$/\n\.sp/g' -pi abspath.1
+  
+And that's all.

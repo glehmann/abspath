@@ -1,0 +1,83 @@
+ABSPATH(1)
+===========
+Gaëtan Lehmann <gaetan.lehmann@jouy.inra.fr>
+
+
+NAME
+----
+abspath - return the absolute path of a file or directory
+
+
+SYNOPSIS
+--------
+'abspath' [options]... [path]...
+
+
+DESCRIPTION
+-----------
+Return a normalized absolutized version of the pathnames. If no arguments
+are passed on the command line, the standard input is used.
+
+
+OPTIONS
+-------
+-r, --real-path::
+        eliminate the symbolic links encoutered in the path
+
+--version::
+        show program's version number and exit
+
+-h, --help::
+        show this help message and exit
+
+
+EXAMPLES
+--------
+
+The following example is ran in /etc. The path returned is the obsolute path of the file::
+
+--------------------------------------
+$ abspath passwd
+/etc/passwd
+--------------------------------------
+
+An example with an absolute path. The path is only simplified::
+
+--------------------------------------
+$ abspath /etc///./../mnt/
+/mnt
+--------------------------------------
+
+The `--real-path` eliminate the symbolic links in the path. The next examples are ran in /etc::
+
+--------------------------------------
+$ abspath ../usr/sbin/sendmail
+/usr/sbin/sendmail
+$ abspath ../usr/sbin/sendmail --real-path
+/usr/sbin/ssmtp
+--------------------------------------
+
+
+BUGS
+----
+Coded in python for prototyping purpose. Should be recoded in C.
+Nothing else known at this time.
+
+
+AUTHOR
+------
+Written by Gaëtan Lehmann, <mailto:gaetan.lehmann@jouy.inra.fr>
+
+
+RESOURCES
+---------
+Main web site: http://voxel.jouy.inra.fr/darcs/abspath
+
+Darcs web: http://voxel.jouy.inra.fr/darcsweb/darcsweb.cgi?r=abspath
+
+
+COPYING
+-------
+Copyright \(C) 2006 Gaëtan Lehmann. Free use of this software is
+granted under the terms of the GNU General Public License (GPL).
+
