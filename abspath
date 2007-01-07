@@ -1,0 +1,44 @@
+#/usr/bin/env python
+#coding: iso-8859-15
+#
+# command line tool to get the absolute path of a file or directory
+#
+# Copyright (C) 2006  Gaetan Lehmann <gaetan.lehmann@jouy.inra.fr>
+# 
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+
+import sys, os.path
+from optparse import OptionParser
+
+VERSION = 0.1
+
+DESCRIPTION = """
+"""
+
+parser = OptionParser(usage = "abspath [options]... [file]...",
+	   description = DESCRIPTION,
+	   version = "abspath %s" % VERSION)
+
+parser.add_option("-r", "--real-path", action="store_true", dest="realPath", help="")
+
+opts, args = parser.parse_args()
+
+for path in args :
+  abspath = os.path.abspath(path)
+  if opts.realPath:
+    abspath = os.path.realpath(abspath)
+  print abspath
+  
