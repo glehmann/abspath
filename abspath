@@ -36,9 +36,17 @@ parser.add_option("-r", "--real-path", action="store_true", dest="realPath", hel
 
 opts, args = parser.parse_args()
 
-for path in args :
+def printAbsolutPath(path) :
   abspath = os.path.abspath(path)
   if opts.realPath:
     abspath = os.path.realpath(abspath)
   print abspath
   
+if args :
+  for path in args :
+    printAbsolutPath(path)
+else :
+  # read the input from stdin
+  for path in sys.stdin :
+    printAbsolutPath(path.strip())
+
