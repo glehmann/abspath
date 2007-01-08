@@ -75,6 +75,8 @@ Main web site: http://voxel.jouy.inra.fr/darcs/abspath
 
 Darcs web: http://voxel.jouy.inra.fr/darcsweb/darcsweb.cgi?r=abspath
 
+Bug tracker: http://qa.mandriva.com/enter_bug.cgi?product_id=27901&distro_code=cooker
+
 
 COPYING
 -------
