@@ -35,21 +35,21 @@ EXAMPLES
 --------
 
 The following example is ran in /etc. The path returned is the obsolute path of the file::
-
+.
 --------------------------------------
 $ abspath passwd
 /etc/passwd
 --------------------------------------
 
 An example with an absolute path. The path is only simplified::
-
+.
 --------------------------------------
 $ abspath /etc///./../mnt/
 /mnt
 --------------------------------------
 
 The `--real-path` eliminate the symbolic links in the path. The next examples are ran in /etc::
-
+.
 --------------------------------------
 $ abspath ../usr/sbin/sendmail
 /usr/sbin/sendmail
